@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Anggota XI RPL 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f0f4f9;
+      background-image: 
+        radial-gradient(#3b82f6 0.75px, transparent 0.75px), 
+        radial-gradient(#3b82f6 0.75px, #f0f4f9 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      color: #1e293b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 0 0 30px 0;
+    }
+
+    .navbar {
+      width: 100%;
+      background: #1e293b;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .navbar .logo {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .navbar ul li a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .navbar ul li a:hover,
+    .navbar ul li a.active {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(30, 41, 59, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      transition: all 0.3s ease;
+      margin: 0 15px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8, #4f46e5);
+      padding: 35px 25px 30px;
+      text-align: center;
+      color: #ffffff;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: #ffffff;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .header-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .content {
+      padding: 10px 30px 35px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title i {
+      color: #2563eb;
+    }
+
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .member-item {
+      background: #f8fafc;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .member-item:hover {
+      transform: translateY(-2px);
+      border-color: #93c5fd;
+    }
+
+    .member-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .member-photo {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #2563eb;
+      flex-shrink: 0;
+    }
+
+    .member-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .member-role {
+      font-size: 12px;
+      font-weight: 600;
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .member-desc {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.5;
+      margin-top: 2px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12.5px;
+      color: #64748b;
+    }
+
+    @media (max-width: 500px) {
+      .member-grid {
+        grid-template-columns: 1fr;
+      }
+      .content {
+        padding: 10px 20px 25px;
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">XI RPL 1 - Kelompok 3</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="profil.html">Profil Kelas</a></li>
+      <li><a href="anggota.html" class="active">Daftar Anggota</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <span class="header-badge">SMK NEGERI 1 GARUT</span>
+      <h1>Daftar Anggota Kelompok</h1>
+    </div>
+
+    <div class="content">
+      
+      <div class="section-title">
+        <i class="fa-solid fa-users"></i> Profil Anggota Kelompok 3
+      </div>
+
+      <div class="member-grid">
+
+        <div class="member-item">
+          <div class="member-header">
+            <img src="img/syakira.jpg" alt="Syakira" class="member-photo">
+            <div class="member-name">Syakira</div>
+          </div>
+          <div class="member-role">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Issue 2 & 4</span>
+          </div>
+          <p class="member-desc">Mengecek keseluruhan proyek serta mengerjakan Issue 2 (Halaman Profil) dan Issue 4 (Halaman Kontak).</p>
+        </div>
+
+        <div class="member-item">
+          <div class="member-header">
+            <img src="img/nadiela.jpg" alt="Nadiela" class="member-photo">
+            <div class="member-name">Nadiela</div>
+          </div>
+          <div class="member-role">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Issue 3</span>
+          </div>
+          <p class="member-desc">Mengerjakan Issue 3, yaitu bertanggung jawab merancang dan membuat tampilan Halaman Anggota.</p>
+        </div>
+
+        <div class="member-item">
+          <div class="member-header">
+            <img src="img/ahmad.jpg" alt="Ahmad" class="member-photo">
+            <div class="member-name">Ahmad</div>
+          </div>
+          <div class="member-role">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Issue 5</span>
+          </div>
+          <p class="member-desc">Mengerjakan Issue 5, yaitu merancang dan membuat komponen Navbar untuk navigasi website.</p>
+        </div>
+
+        <div class="member-item">
+          <div class="member-header">
+            <img src="img/lutfi.jpg" alt="Lutfi" class="member-photo">
+            <div class="member-name">Lutfi</div>
+          </div>
+          <div class="member-role">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Issue 6</span>
+          </div>
+          <p class="member-desc">Mengerjakan Issue 6, yaitu merancang dan membuat komponen Footer pada bagian bawah website.</p>
+        </div>
+
+        <div class="member-item">
+          <div class="member-header">
+            <img src="img/alifah.jpg" alt="Alifah" class="member-photo">
+            <div class="member-name">Alifah</div>
+          </div>
+          <div class="member-role">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Issue 1</span>
+          </div>
+          <p class="member-desc">Mengerjakan Issue 1, yaitu membuat tampilan utama/landing page pada Halaman Home.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 XI RPL 1 Kelompok 3. All Rights Reserved.
+  </div>
+
+</body>
+</html>
