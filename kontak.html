@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak - XI RPL 1</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #eef2f5;
+      background-image: radial-gradient(#b0bec5 1px, transparent 1px);
+      background-size: 16px 16px;
+      color: #333;
+      padding: 30px 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .main-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 680px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    /* Header Banner */
+    .header-banner {
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .header-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .header-banner h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    /* Content Area */
+    .content {
+      padding: 24px 28px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title i {
+      color: #2563eb;
+    }
+
+    /* Grid Info Kontak & Medsos */
+    .contact-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .info-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .info-item i {
+      font-size: 1.2rem;
+      color: #2563eb;
+      margin-top: 2px;
+    }
+
+    .info-item div p:first-child {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+    }
+
+    .info-item div p:last-child, .info-item div a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1e293b;
+      text-decoration: none;
+    }
+
+    .info-item div a:hover {
+      color: #2563eb;
+    }
+
+    /* Social Media Links */
+    .social-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .social-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #334155;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .social-badge:hover {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #2563eb;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e2e8f0;
+      margin: 24px 0;
+    }
+
+    /* Form Section */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      color: #1e293b;
+      outline: none;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      border-color: #2563eb;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* Tombol Kirim */
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      transition: transform 0.2s;
+      margin-top: 16px;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Footer Navigasi */
+    .footer-links {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .footer-links a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-card">
+    <!-- Header Banner -->
+    <div class="header-banner">
+      <div class="header-badge">SMK NEGERI 1 GARUT</div>
+      <h1>Kontak XI RPL 1</h1>
+    </div>
+
+    <div class="content">
+      
+      <!-- Informasi Sekolah & Kelas -->
+      <div class="section-title">
+        <i class="fa-solid fa-address-card"></i> Informasi Kontak Kelas
+      </div>
+
+      <div class="contact-info-grid">
+        <!-- Alamat Sekolah -->
+        <div class="info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <p>Alamat Sekolah</p>
+            <p>Jl. Cimanuk No.309, Tarogong Kidul, Garut</p>
+          </div>
+        </div>
+
+        <!-- Email Kelas -->
+        <div class="info-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <p>Email Kelas</p>
+            <a href="mailto:xirpl1@smkn1garut.sch.id">xirpl1@smkn1garut.sch.id</a>
+          </div>
+        </div>
+
+        <!-- Nomor WhatsApp -->
+        <div class="info-item">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <p>Telepon / WhatsApp</p>
+            <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a>
+          </div>
+        </div>
+
+        <!-- Tautan Media Sosial -->
+        <div class="info-item">
+          <i class="fa-solid fa-share-nodes"></i>
+          <div>
+            <p>Media Sosial</p>
+            <div class="social-links">
+              <a href="https://instagram.com" target="_blank" class="social-badge">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+              <a href="https://youtube.com" target="_blank" class="social-badge">
+                <i class="fa-brands fa-youtube"></i> YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Form Pesan / Masukan -->
+      <div class="section-title">
+        <i class="fa-solid fa-paper-plane"></i> Kirim Pesan / Masukan
+      </div>
+
+      <form action="#" method="post">
+        <div class="form-group">
+          <label class="form-label" for="nama"><i class="fa-solid fa-user"></i> Nama Lengkap</label>
+          <input type="text" id="nama" class="form-input" placeholder="Masukkan nama Anda" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email"><i class="fa-solid fa-envelope"></i> Email Anda</label>
+          <input type="email" id="email" class="form-input" placeholder="nama@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pesan"><i class="fa-solid fa-comment-dots"></i> Pesan / Masukan</label>
+          <textarea id="pesan" class="form-textarea" placeholder="Tuliskan pesan atau masukan Anda..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          <i class="fa-solid fa-paper-plane"></i> Kirim Pesan
+        </button>
+      </form>
+
+      <!-- Navigasi Ke Halaman Profil -->
+      <div class="footer-links">
+        <a href="profil.html"><i class="fa-solid fa-arrow-left"></i> Kembali ke Profil</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
